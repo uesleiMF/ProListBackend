@@ -7,7 +7,7 @@ const Conn = () => {
   // url de conexao = mongodb://servidor:porta/nomedobanco
   // useNewUrlParser = fala pro mongo usar o novo sistema de urls
   // useUnifiedTopology = mecanismo de monitoramento do banco de dados
-  mongoose.connect('mongodb://localhost:27017/musicas',{
+  mongoose.connect('mongodb://localhost:27017/produtos',{
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }

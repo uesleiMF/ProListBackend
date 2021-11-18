@@ -18,7 +18,7 @@ app.use(cors());
 
 // configuro um middleware para interceptar as chamadas para a rota /musicas
 // e enviar para o nosso arquivo de rotas
-app.use('/musicas', ProdutosRouter);
+app.use('/produtos', ProdutosRouter);
 
 // executando a minha funcao de conexao com o banco criado no arquivo conn.js
 Conn();
