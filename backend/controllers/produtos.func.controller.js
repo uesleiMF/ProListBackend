@@ -1,4 +1,4 @@
-const ProdutosService = require('./../services/musicas.service');
+const ProdutosService = require('../services/produtos.service');
 
 const produtosService = new ProdutosService;
 

@@ -1,5 +1,5 @@
 // importar o meu servico para poder acessar as funcoes que executam as querys do banco.
-const ProdutosService = require('./../services/musicas.service');
+const ProdutosService = require('../services/produtos.service');
 // inicializamos a classe do servico
 const produtosService = new ProdutosService;
 

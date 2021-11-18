@@ -1,5 +1,5 @@
 // importo o model para poder acessar os seus metodos do mongo.
-const ProdutosModel = require('./../models/musica');
+const ProdutosModel = require('../models/produto');
 
 // crio a classe do meu servico para poder acessar o seus metodos.
 class produtosService {

@@ -1,9 +1,9 @@
 // importar o express para poder acessar o seu metodo de rotas e as funcoes http.
 const express = require("express");
 // importar o controller para poder chamar as suas funcoes na rota
-const ProdutosController = require("./../controllers/musicas.controller");
+const ProdutosController = require("../controllers/produtos.controller");
 
-const ProdutosControllerFunc = require('./../controllers/musicas.func.controller');
+const ProdutosControllerFunc = require('../controllers/produtos.func.controller');
 // inicializar a classe controller
 const produtosController = new ProdutosController();
 
