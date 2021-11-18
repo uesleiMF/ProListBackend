@@ -1,13 +1,13 @@
-const MusicasService = require('./../services/musicas.service');
+const ProdutosService = require('./../services/musicas.service');
 
-const musicasService = new MusicasService;
+const produtosService = new ProdutosService;
 
 exports.getAll = async (req,res) => {
-    const musicas = await musicasService.findAll();
-    res.send(musicas);
+    const produtos = await produtosService.findAll();
+    res.send(produtos);
 }
 
 exports.getbyid = async (req,res) => {
-    const musica = await musicasService.findById(req.params.id);
-    res.send(musica);
+    const produto = await produtosService.findById(req.params.id);
+    res.send(produto);
 }

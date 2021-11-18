@@ -3,7 +3,7 @@ const express = require('express');
 // importar o cors para impedir problema de recursos distintos (urls externas acessando o nosso backend)
 const cors  = require('cors');
 // importar as nossas rotas da musica
-const MusicasRouter = require('./routes/musicas.routes');
+const ProdutosRouter = require('./routes/musicas.routes');
 // importar a minha funcao de conexao com o banco
 const Conn = require('./conn/conn');
 
@@ -18,7 +18,7 @@ app.use(cors());
 
 // configuro um middleware para interceptar as chamadas para a rota /musicas
 // e enviar para o nosso arquivo de rotas
-app.use('/musicas', MusicasRouter);
+app.use('/musicas', ProdutosRouter);
 
 // executando a minha funcao de conexao com o banco criado no arquivo conn.js
 Conn();

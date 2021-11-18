@@ -9,19 +9,20 @@ const mongoose = require('mongoose');
 
 // Criar e inicializar o meu Schema
 
-const musicaSchema = new mongoose.Schema({
-  nome: {type: String, required: true},
-  autor: {type: String, required: true},
-  genero: {type: String, required: true},
+const produtoSchema = new mongoose.Schema({
+  titulo: {type: String, required: true},
+  descricao: {type: String, required: true},
+  prioridade: {type: String, required: true},
+  status: {type: String, required: true},
   capa: {type: String },
-  duracao: {type: String },
+  prazo: {type: String },
   dataCriacao: { type: Date, default: Date.now }
 })
 
 // criar e inicializando meu model baseado no meu schema
-const MusicaModel = mongoose.model('musicas', musicaSchema);
+const ProdutoModel = mongoose.model('produtos', produtoSchema);
 
-module.exports = MusicaModel;
+module.exports = ProdutoModel;
 
 
 
