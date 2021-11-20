@@ -1,5 +1,5 @@
 // importar o meu servico para poder acessar as funcoes que executam as querys do banco.
-const ProdutosService = require('../services/produtos.service');
+const ProdutosService = require('./../services/produtos.service');
 // inicializamos a classe do servico
 const produtosService = new ProdutosService;
 
@@ -47,7 +47,7 @@ class ProdutosController {
     const produtoEdit = req.body;
     await produtosService.edit(idParam, produtoEdit)
     .then(() => {
-      res.send({message: `Produto Editada com sucesso`})
+      res.send({message: `Produto Editado com sucesso`})
     })
     .catch( err => { 
       res.status(500).send({message: `Erro: ${err}`})
@@ -69,3 +69,4 @@ class ProdutosController {
 
 // Exportando essa classe criada para poder ser acessada de outros arquivos
 module.exports = ProdutosController;
+
