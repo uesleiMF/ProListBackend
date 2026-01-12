@@ -1,22 +1,23 @@
 const mongoose = require('mongoose');
 
-const Conn = (url, user, pass, data) => {
-  let fullUrl;
+async function connectDB() {
+  const uri = process.env.MONGO_URI;
 
-  if(user && pass) {
-    // Mongo Atlas
-    fullUrl = `mongodb+srv://${user}:${pass}@${url}/${data}?retryWrites=true&w=majority`;
-  } else {
-    // Mongo local
-    fullUrl = `${url}/${data}`;
+  if (!uri) {
+    console.error('❌ MONGO_URI não definida no .env');
+    process.exit(1);
   }
 
-  mongoose.connect(fullUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('✅ Conectado ao MongoDB'))
-  .catch(err => console.error('❌ Erro ao conectar ao MongoDB:', err.message));
-};
+  try {
+    await mongoose.connect(uri, {
+      serverSelectionTimeoutMS: 5000,
+    });
 
-module.exports = Conn;
+    console.log('✅ MongoDB conectado com sucesso');
+  } catch (error) {
+    console.error('❌ Erro ao conectar no MongoDB:', error.message);
+    process.exit(1);
+  }
+}
+
+module.exports = connectDB;
