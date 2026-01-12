@@ -1,25 +1,39 @@
 const ProdutosModel = require('../models/produto');
 
-class produtosService {
-   findAll = async () => await ProdutosModel.find();
+class ProdutosService {
 
-    findById = async (id) => {
-    return await ProdutosModel.findById(id)
-  };
-
-   create = async (produto) => {
-    return await ProdutosModel.create(produto)  
+  async findAll() {
+    return await ProdutosModel.find();
   }
 
-   edit = async (id, produto) => {
-    return await ProdutosModel.updateOne({ _id: id}, produto)
+  async findById(id) {
+    const produto = await ProdutosModel.findById(id);
+
+    if (!produto) {
+      return null;
+    }
+
+    return produto;
   }
 
-   delete = async (id) => {
-    return await ProdutosModel.deleteOne({ _id: id})
+  async create(produto) {
+    return await ProdutosModel.create(produto);
   }
 
+  async edit(id, produto) {
+    const updated = await ProdutosModel.findByIdAndUpdate(
+      id,
+      produto,
+      { new: true }
+    );
+
+    return updated;
+  }
+
+  async delete(id) {
+    const deleted = await ProdutosModel.findByIdAndDelete(id);
+    return deleted;
+  }
 }
 
-// exportar a minha classe para que o controller possa acessar os seus metodos.
-module.exports = produtosService;
+module.exports = ProdutosService;

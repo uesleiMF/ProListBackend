@@ -13,9 +13,9 @@ async function connectDB() {
       serverSelectionTimeoutMS: 5000,
     });
 
-    console.log('✅ MongoDB conectado com sucesso');
+    console.log('✅ Conectado ao MongoDB');
   } catch (error) {
-    console.error('❌ Erro ao conectar no MongoDB:', error.message);
+    console.error('❌ Erro ao conectar ao MongoDB:', error.message);
     process.exit(1);
   }
 }
